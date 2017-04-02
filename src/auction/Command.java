@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 
 import com.zaxxer.hikari.HikariDataSource;
 
-abstract class Command {
+public abstract class Command {
 
 	protected HikariDataSource _hikariDataSource;
 	protected ClientHandle _clientHandle;
