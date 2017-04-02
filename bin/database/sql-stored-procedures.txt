@@ -278,8 +278,7 @@ begin
 end;
 ' language 'plpgsql';
 
-----------------------------------------------------------------
-
+------------------------------------------------------------------------------------------
 create or replace function createBid(
     userID INT,
     itemID INT,
@@ -307,7 +306,6 @@ begin
   return 1;
 end;
 ' language 'plpgsql';
-
 
 -------------------------------------------------------------
 
@@ -350,4 +348,76 @@ end;
 'language 'plpgsql';
 
 -------------------------------------------------------------
+
+create or replace function retrieveWinningBid(
+  itemID INT
+)
+returns INT as'
+
+declare
+  auctionID INT;
+    maxAmount DECIMAL;
+begin
+  select into auctionID id from Auction where item_id = itemID;
+
+    if(auctionID is null) then
+    return -404;
+    end if;
+
+    select into maxAmount amount from Bid where auction_id = auctionID AND max(amount);
+
+    if(bidID is null) then
+    return -404;
+  end if;
+
+    return maxAmount;
+end;
+'language 'plpgsql';
+
+-------------------------------------------------------------
+
+create or replace function viewMyPurchasedItems(
+  userID INT
+)
+returns INT as'
+
+declare
+    bidID INT;
+    items integer[];
+begin
+    select into bidID bid_id from Transaction where user_id = userID;
+    if(bidID is null) then
+    return -404;
+    end if;
+
+    select into items item_id from Bid where id = bid_id;
+
+    return items;
+end;
+'language 'plpgsql';
+
+-------------------------------------------------------------
+
+create or replace function viewMyCurrentBids(
+  userID INT
+)
+returns TABLE as'
+
+declare
+    lTimeCurrent TIMESTAMP;
+    items TABLE;
+begin
+    SELECT into lTimeCurrent  ''now'';
+    SELECT * into items 
+    FROM Bid,Auction,Item
+    WHERE Auction.pEndDate < lTimeCurrent;
+
+    if(items is null) then
+    	return -404;
+    end if;
+
+
+    return items;
+end;
+'language 'plpgsql';
     
