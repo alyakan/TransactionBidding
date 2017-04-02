@@ -410,14 +410,37 @@ begin
     SELECT into lTimeCurrent  ''now'';
     SELECT * into items 
     FROM Bid,Auction,Item
-    WHERE Auction.pEndDate < lTimeCurrent;
+    WHERE Auction.pEndDate < lTimeCurrent AND Bid.user = userID;
 
-    if(items is null) then
-    	return -404;
+    if(bidID is null) then
+        return -404;
     end if;
 
 
     return items;
+end;
+'language 'plpgsql';
+
+-------------------------------------------------------------
+
+create or replace function viewWinningBid(
+  auctionID INT
+)
+returns SETOF as'
+
+declare
+    item SETOF;
+begin
+    SELECT * into item 
+    FROM Bid,Auction,Item
+    WHERE Bid.amount = max(amount) AND Auction.id = auctionID;
+
+    if(bidID is null) then
+    return -404;
+    end if;
+
+
+    return item;
 end;
 'language 'plpgsql';
     
