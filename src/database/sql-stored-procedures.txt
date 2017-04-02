@@ -280,7 +280,7 @@ end;
 
 ----------------------------------------------------------------
 
-create or replace function bidOnAnItem(
+create or replace function createBid(
     userID INT,
     itemID INT,
     bid_amount DECIMAL
@@ -307,4 +307,47 @@ begin
   return 1;
 end;
 ' language 'plpgsql';
+
+
+-------------------------------------------------------------
+
+create or replace function updateBid(
+    userID INT,
+  itemID INT,
+  new_bid_amount DECIMAL
+)
+returns INT as'
+
+declare
+  auctionID INT;
+    bidID INT;
+    oldBidAmount DECIMAL;
+begin
+  select into auctionID id from Auction where item_id = itemID;
+
+    if(auctionID is null) then
+        return -404;
+    end if;
+
+    select into bidID id from Bid where auction_id = auctionID AND user_id = userID;
+
+    if(bidID is null) then
+    return -404;
+  end if;
+
+    select into oldBidAmount amount from Bid where auction_id = auctionID AND user_id = userID;
+
+    if(oldBidAmount > new_bid_amount) then
+        return -400;
+    end if;
+
+    update Bid
+        set amount = new_bid_amount
+        where id = bidID;
+
+  return 1;
+end;
+'language 'plpgsql';
+
+-------------------------------------------------------------
     
