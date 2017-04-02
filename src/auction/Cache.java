@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 
 import java.sql.*;
 import java.util.*;

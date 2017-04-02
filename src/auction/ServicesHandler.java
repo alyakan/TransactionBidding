@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 
 import io.netty.util.*;
 import io.netty.channel.*;

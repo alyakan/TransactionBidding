@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 
 import java.net.InetAddress;
 import java.net.SocketAddress;

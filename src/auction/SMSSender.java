@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 public class SMSSender{
 
 	public SMSSender( ){

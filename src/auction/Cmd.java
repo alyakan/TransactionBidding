@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;

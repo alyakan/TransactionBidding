@@ -2,13 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Documents/workspace/scalable-apps/Ebay/src/libs/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/boon-0.4.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/HikariCP-java6-2.3.1.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/javassist.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/netty-all-5.0.0.Alpha2-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/postgresql-9.3-1102.jdbc41.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/slf4j-api-1.7.10.jar"/>
-	<classpathentry kind="lib" path="/Users/alyyakan/Desktop/Massively Scalable Apps/TransactionBidding/src/libs/slf4j-jdk14-1.7.10.jar"/>
+	<classpathentry kind="lib" path="src/libs/boon-0.4.jar"/>
+	<classpathentry kind="lib" path="src/libs/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="src/libs/HikariCP-java6-2.3.1.jar"/>
+	<classpathentry kind="lib" path="src/libs/javassist.jar"/>
+	<classpathentry kind="lib" path="src/libs/netty-all-5.0.0.Alpha2-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="src/libs/postgresql-9.3-1102.jdbc41.jar"/>
+	<classpathentry kind="lib" path="src/libs/slf4j-api-1.7.10.jar"/>
+	<classpathentry kind="lib" path="src/libs/slf4j-jdk14-1.7.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,4 +1,4 @@
-package Bid;
+package auction;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
