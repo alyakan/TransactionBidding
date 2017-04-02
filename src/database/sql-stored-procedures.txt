@@ -433,10 +433,10 @@ declare
 begin
     SELECT * into winning_bid 
     FROM Bid,Auction,User
-    WHERE Bid.amount = max(amount) AND Auction.id = auctionID;
+    WHERE Bid.amount = max(Bid.amount) AND Auction.id = auctionID;
 
     if(bidID is null) then
-    return -404;
+    	return -404;
     end if;
 
 
