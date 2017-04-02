@@ -277,4 +277,34 @@ begin
 	return 0;
 end;
 ' language 'plpgsql';
+
+----------------------------------------------------------------
+
+create or replace function bidOnAnItem(
+    userID INT,
+    itemID INT,
+    bid_amount DECIMAL
+)
+returns INT as'
+
+declare
+  auctionID INT;
+    minAmount DECIMAL;
+begin
+  select into auctionID id from Auction where item_id = itemID;
+  if(auctionID is null) then
+    return -404;
+  end if;
+
+    select into minAmount min_amount from Auction where id = auctionID;
+
+    if(bid_amount < minAmount) then
+        return -400;
+    end if;
+
+  insert into Bid(amount, user_id, auction_id)
+              values(bid_amount, userID, auctionID);
+  return 1;
+end;
+' language 'plpgsql';
     
