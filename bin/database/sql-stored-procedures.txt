@@ -429,10 +429,10 @@ create or replace function viewWinningBid(
 returns SETOF as'
 
 declare
-    item SETOF;
+    winning_bid SETOF;
 begin
-    SELECT * into item 
-    FROM Bid,Auction,Item
+    SELECT * into winning_bid 
+    FROM Bid,Auction,User
     WHERE Bid.amount = max(amount) AND Auction.id = auctionID;
 
     if(bidID is null) then
